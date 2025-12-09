@@ -25,7 +25,7 @@ screenshot of bug: https://imgur.com/a/laKP0Sc
 
 ## Possible fixes
 Bug found in code line:
-#<h3 class="gl-text-color-heading gl-text-size-h2">Create black project</h3>
+h3 class="gl-text-color-heading gl-text-size-h2">Create black project</h3>
 Possible fix:
 Instead of "black", write "blank".
 
@@ -39,6 +39,7 @@ Instead of "black", write "blank".
 
 Minor.
       
+
 
 
 
