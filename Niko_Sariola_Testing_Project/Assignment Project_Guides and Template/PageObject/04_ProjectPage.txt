@@ -1,0 +1,97 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation:
+Testing functionality of project creation, reading, updating and deletion. Testing with positive and negative test cases.
+
+
+
+Pre Condition	Logged into gitlab.com, open browser
+Post Condition	Close browser
+Tags project management, project, CRUD
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+project group = testgroup123
+blank project name = testproject123
+template project name = templateproject123
+project deployment = no deployment
+visibility level = private
+initialize repo with a readme = yes
+enable SAST = no
+enable secret detection = no
+experimental settings = no
+project description = no
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create blank project
+	1. Open homepage
+	2. Click "Create project"
+	3. Click "Create blank project"
+	4. Fill in required fields
+	5. Click "Create project"
+	6. Confirm redirect to project page
+	7. Confirm site displays "Project 'testproject123' has been created" message
+	8. Project has been created and is visible
+
+	Create template project
+	1. Open homepage
+	2. Click "Create project"
+	3. Click "Create from template"
+	4. Click "Use template" on "Pages/Plain HTML" template
+	4. Fill in required fields
+	5. Click "Create project"
+	6. Confirm redirect to project page
+	7. Confirm site displays "Project 'templateproject123' has been imported" message
+	8. Project has been successfully created using selected template
+
+	Update name of template project
+	1. Open project page of previously created template project
+	2. Go to settings of the project
+	3. Click "General"
+	4. Rename project using project name field
+	5. Click "Save changes"
+	6. Confirm site reload
+	7. Confirm "Project 'renamedproject123' was successfully updated" message
+
+	Delete template project
+	1. Open project page of previously created template project
+	2. Go to settings of the project
+	3. Click "General"
+	4. Click tab "Advanced" in "General"
+	5. Click "Delete" button
+	6. Type "testgroup123/templateproject123" in deletion form
+	6. Submit deletion form by clicking "Yes, delete project"
+	7. Confirm redirect to template project page
+	8. Confirm "This project is pending deletion" message
+
+	Valide that message is showing Project 'First project ' was successfully created.
+	1. Open project creation page
+	2. Create blank project
+	3. Fill in required fields, using project name 'First project'
+	4. Confirm redirect to project page
+	5. Confirm site displays message "Project 'First project' has been created" 
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+	1. Open project creation page
+	2. Click "Create blank project"
+	3. Fill in required fields, using previously used name "testproject123"
+	4. Click "Create project"
+	5. Confirm error messages: "Project namespace name has already been taken", "Name has already been taken", "Path has already been taken"
+	6. Confirm project creation unsuccessful
+

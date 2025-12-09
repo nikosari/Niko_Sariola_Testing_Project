@@ -1,0 +1,68 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+
+Pre Condition	Created project, logged in, webpage open
+Post Condition	Close browser
+Tags issues, CRUD, project
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+Type: Issue
+Project: testproject123
+Title: issuetest123
+Description: no
+Assignee: myself
+Labels: none
+Milestone: none
+Dates: none
+Contacts: none
+Confidentiality: no
+Updated name: renamedissue123
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue
+	1. Go to "testproject123" project page
+	2. Click "Issues" in the sidebar
+	3. Click "New item"
+	4. Fill in required fields
+	5. Click "Create issue"
+	6. Confirm issue created and visible in issue page
+
+ 	Update name of issue
+	1. Go to "Issues" page in "testproject123"
+	2. Open issue "issuetest123"
+	3. Click "edit"
+	4. Change title to "renamedissue123"
+	5. Click "save changes"
+	6. Confirm issue name changed accordingly
+
+	Create second issue with privious updated name
+	1. Go to "Issues" page in "testproject123"
+	2. Click "new item"
+	3. Fill in required fields, using title "renamedissue123"
+	4. Click create issue
+	5. Confirm issue created with same name as previously renamed issue
+
+    Delete first issue
+	1. Go to "issues" page in "testproject123"
+	2. Open first issue "renamedissue123"
+	3. Click three dots icon in top right of issue page
+	4. Click "Delete issue"
+	5. Click "Delete issue" in confirmation popup
+	6. Confirm issue is deleted
